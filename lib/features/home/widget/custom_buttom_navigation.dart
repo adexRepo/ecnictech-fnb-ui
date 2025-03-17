@@ -5,8 +5,6 @@ import 'package:ecnictech_fnb_ui/constant/colors.dart';
 import 'package:ecnictech_fnb_ui/features/home/bloc/home_bloc.dart';
 import 'package:ecnictech_fnb_ui/features/home/bloc/home_event.dart';
 
-import '../../../common/widgets/custom_popup.dart';
-
 class NavbarWithMiddleButton extends StatefulWidget {
   const NavbarWithMiddleButton({super.key});
 
@@ -73,24 +71,22 @@ class _NavbarWithMiddleButtonState extends State<NavbarWithMiddleButton> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               SizedBox(
-                width: 100,
-                height: 50.h,
                 child: TextButton(
                   onPressed: () {
                     context.read<HomeBloc>().add(HomeSalesEvent());
                   },
-                  child: const Column(
+                  child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
                         Icons.arrow_circle_down_outlined,
                         color: ColorsManager.gray,
-                        size: 24,
+                        size: 24.h,
                       ),
                       Text(
                         "Sales",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12.h,
                           fontWeight: FontWeight.w500,
                           color: ColorsManager.gray,
                         ),
@@ -117,42 +113,33 @@ class _NavbarWithMiddleButtonState extends State<NavbarWithMiddleButton> {
                           ),
                         ),
                       ),
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.add_circle,
                         color: ColorsManager.lightShadeOfGray,
-                        size: 50,
+                        size: 50.h,
                       ),
-                      onPressed: () {
-                        showCustomPopup(
-                            context: context,
-                            content: const Text("data"),
-                            isFullScreen: false,
-                            onClose: () => {},
-                            onOpen: () => {});
-                      },
+                      onPressed: () {},
                     ),
                   )
                 ],
               ),
               SizedBox(
-                width: 100,
-                height: 50.h,
                 child: TextButton(
                   onPressed: () {
                     context.read<HomeBloc>().add(HomePurchaseEvent());
                   },
-                  child: const Column(
+                  child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Icon(
                         Icons.arrow_circle_down_outlined,
                         color: ColorsManager.gray,
-                        size: 24,
+                        size: 24.h,
                       ),
                       Text(
                         "Purchase",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 12.h,
                           fontWeight: FontWeight.w500,
                           color: ColorsManager.gray,
                         ),
