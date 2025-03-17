@@ -1,22 +1,17 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:gsheets/gsheets.dart';
 import 'package:ecnictech_fnb_ui/common/models/dkriuk_product.dart';
-import 'package:ecnictech_fnb_ui/common/service/secure_http_request.dart';
 import 'package:ecnictech_fnb_ui/core/error/failures.dart';
 
 abstract class CommonService {
   Future<Either<Failure, List<DkriukPrduct>>> getDkriukProduct();
 }
 
-const _credentials =
-    'your-credentials.json'; // replace with your credentials file
-
-const _spreadsheetId = '';
-
 class CommonServiceImpl implements CommonService {
-  final SecureHttpRequest secureHttpRequest;
-
-  CommonServiceImpl({required this.secureHttpRequest});
+  final _credentials =
+      dotenv.env['G_SHEET_CREDENTIAL']!; // replace with your credentials file
+  final _spreadsheetId = dotenv.env['G_SHEET_ID']!;
 
   @override
   Future<Either<Failure, List<DkriukPrduct>>> getDkriukProduct() async {

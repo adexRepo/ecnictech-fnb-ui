@@ -5,6 +5,35 @@ class SalesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text("Sales Page"));
+    final List<Widget> _items = List.generate(
+        10,
+        (index) => Container(
+              margin: const EdgeInsets.all(10),
+              child: ListTile(
+                title: Text('Title $index'),
+                subtitle: Text('Body $index'),
+              ),
+            ));
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Daily Sales'),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: ExpansionPanelList(
+          materialGapSize: 2,
+          children: _items
+              .map((e) => ExpansionPanelRadio(
+                    value: e,
+                    headerBuilder: (context, isExpanded) => ListTile(
+                      title: Text('Title'),
+                    ),
+                    body: e,
+                  ))
+              .toList(),
+        ),
+      ),
+    );
   }
 }
