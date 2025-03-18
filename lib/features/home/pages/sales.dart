@@ -21,6 +21,7 @@ class SalesPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(8),
         child: ExpansionPanelList(
           materialGapSize: 2,
           children: _items
