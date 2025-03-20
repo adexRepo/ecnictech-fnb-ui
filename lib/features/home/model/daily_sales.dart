@@ -1,13 +1,27 @@
+import 'package:ecnictech_fnb_ui/features/home/model/daily_sales_detail.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'daily_sales.g.dart';
+
+@JsonSerializable()
 class DailySales {
-  final String date;
-  final double sales;
+  final double totalSales;
+  final double totalLoss;
+  final double totalFee;
+  final String createdDate;
+  final String createdBy;
 
-  DailySales({required this.date, required this.sales});
+  List<DailySalesDetail> details = [];
 
-  factory DailySales.fromJson(Map<String, dynamic> json) {
-    return DailySales(
-      date: json['date'],
-      sales: json['sales'],
-    );
-  }
+  DailySales(
+      {required this.totalSales,
+      required this.totalLoss,
+      required this.totalFee,
+      required this.createdDate,
+      required this.createdBy});
+
+  factory DailySales.fromJson(Map<String, dynamic> json) =>
+      _$DailySalesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DailySalesToJson(this);
 }
