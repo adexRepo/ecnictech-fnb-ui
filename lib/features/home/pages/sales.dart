@@ -6,10 +6,11 @@ class SalesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Sales Page'),
-        ),
-        body: RecordListScreen());
+      appBar: AppBar(
+        title: Text('Sales Page'),
+      ),
+      body: RecordListScreen(),
+    );
   }
 }
 
